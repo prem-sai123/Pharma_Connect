@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "23101894132",
+    "project_id": "pharmaconnect-flutter",
+    "storage_bucket": "pharmaconnect-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23101894132:android:eb96e3601cc9fc3d849da1",
+        "android_client_info": {
+          "package_name": "com.hutechsol.pharma_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRj3jCRuSw2_gQxKDuF52kKWwcEw7hf38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
