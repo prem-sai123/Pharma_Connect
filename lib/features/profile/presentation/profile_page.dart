@@ -41,7 +41,10 @@ class _ProfilePageState extends State<ProfilePage>
             success: (details) {
               overlay.hide();
               if (details == null) return;
-              context.showSnackbar('Profile Details Updated Seccessfully..!', AppSnackBarType.success);
+              context.showSnackbar(
+                'Profile Details Updated Seccessfully..!',
+                AppSnackBarType.success,
+              );
               setState(() {
                 nameCtlr.text = details.name.valueOrEmpty;
                 phoneCtlr.text = details.phone.valueOrEmpty;
@@ -83,6 +86,10 @@ class _ProfilePageState extends State<ProfilePage>
                       shape: BeveledRectangleBorder(),
                     ),
                     onPressed: () {
+                      if (nameCtlr.text.trim().isEmpty) {
+                        context.showSnackbar('Please Enter Your Name');
+                        return;
+                      }
                       final details = UserDetails(
                         name: nameCtlr.text,
                         greetings: 'MR',

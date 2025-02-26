@@ -22,7 +22,7 @@ class GridListWidget extends StatelessWidget {
           success: (list) {
             final data = [...list];
             if (id != null) {
-              data.removeWhere((e) => e.id == id);
+              data.removeWhere((e) => e.name == id);
             }
             return GridView.builder(
               shrinkWrap: true,

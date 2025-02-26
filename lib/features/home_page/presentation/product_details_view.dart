@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharma_connect/core/context_ext.dart';
+import 'package:pharma_connect/core/styles/app_colors.dart';
 import 'package:pharma_connect/core/widget_ext.dart';
 import 'package:pharma_connect/core/widgets/simple_app_bar.dart';
 import 'package:pharma_connect/features/cart/model/cart.dart';
@@ -12,6 +13,7 @@ import 'package:pharma_connect/features/home_page/presentation/widgets/product_b
 import 'package:pharma_connect/features/home_page/presentation/widgets/product_info_widget.dart';
 import 'package:pharma_connect/features/my_orders/presentation/bloc/create_order/create_order_cubit.dart';
 import 'package:pharma_connect/features/my_orders/presentation/bloc/orders/orders_cubit.dart';
+import 'package:pharma_connect/features/profile/presentation/sign_in_widget.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key, required this.drug});
@@ -38,6 +40,12 @@ class ProductDetailsView extends StatelessWidget {
         listener: (_, state) {
           state.maybeWhen(
             orElse: () {},
+            login: (cart) async {
+              final isLogin = await SignInWidget.prompt(context);
+              if (isLogin && context.mounted) {
+                context.bloc<CreateOrderCubit>().createOrder(cart);
+              }
+            },
             success: (data) {
               context.showSnackbar(
                 'Order Placed Successfully..!',
@@ -64,7 +72,31 @@ class ProductDetailsView extends StatelessWidget {
                             _prodMode(context),
                             _unitsWidget(),
                             ProductInfoWidget(details: details),
-                            GridListWidget(id: details.id),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Especially for you',
+                                  style: context.textTheme.titleSmall?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  'List of drugs assigned to you',
+                                  style: context.textTheme.labelMedium
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12,
+                                        color: AppColors.slateGrey,
+                                      ),
+                                ),
+                                GridListWidget(id: details.name),
+                              ],
+                            ).paddingSymmetric(
+                              horizontal: 12.0,
+                              vertical: 12.0,
+                            ),
                           ],
                         ),
                       ).expanded(),

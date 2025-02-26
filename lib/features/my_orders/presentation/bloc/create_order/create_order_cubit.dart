@@ -19,6 +19,8 @@ class CreateOrderCubit extends Cubit<CreateOrderState> {
 
   void createOrder(Cart cart) async {
     emit(_Loading());
+    final isLoggedIn = await repo.isLoggedIn();
+    if (!isLoggedIn) return emit(_Login(cart));
     final res = await repo.createOrder(cart);
     emit(res.fold(_Failure.new, _Success.new));
   }
@@ -28,6 +30,7 @@ class CreateOrderCubit extends Cubit<CreateOrderState> {
 class CreateOrderState with _$CreateOrderState {
   const factory CreateOrderState.initial() = _Initial;
   const factory CreateOrderState.loading() = _Loading;
+  const factory CreateOrderState.login(Cart cart) = _Login;
   const factory CreateOrderState.success(MyOrder data) = _Success;
   const factory CreateOrderState.failure(Failure failure) = _Failure;
 }

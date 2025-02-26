@@ -18,6 +18,16 @@ class HomePageRepoImpl implements HomePageRepo {
   const HomePageRepoImpl({required this.db, required this.pref});
 
   @override
+  Future<bool> isLoggedIn() async {
+    try {
+      final userId = pref.getString(Entites.userId);
+      return userId != null;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  @override
   AsyncValueOf<List<SampleDrug>> fetchSampleDrugs() async {
     try {
       final collectionRef = db.collection(Entites.sampleDrugs);

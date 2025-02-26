@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharma_connect/core/widgets/simple_app_bar.dart';
 import 'package:pharma_connect/features/cart/ui/cart_screen.dart';
 import 'package:pharma_connect/features/home_page/presentation/widgets/promotions_widget.dart';
 import 'package:pharma_connect/features/home_page/presentation/widgets/sample_drugs_list.dart';
 import 'package:pharma_connect/features/my_orders/presentation/ui/my_orders_page.dart';
+import 'package:pharma_connect/features/profile/presentation/bloc/profile_details/profile_details_cubit.dart';
 import 'package:pharma_connect/features/profile/presentation/profile_page.dart';
 
 final PageController globalPageController = PageController();
@@ -34,7 +36,14 @@ class _HomePageState extends State<AppMainPage> {
       body: PageView(
         controller: globalPageController,
         physics: NeverScrollableScrollPhysics(),
-        children: [_HomeWidget(), MyOrdersPage(), CartScreen(), ProfilePage()],
+        children: [
+          _HomeWidget(),
+          MyOrdersPage(),
+          CartScreen(),
+          BlocBuilder<ProfileDetailsCubit, ProfileDetailsState>(
+            builder: (_, _) => ProfilePage(),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color(0xFFFAFAFA),

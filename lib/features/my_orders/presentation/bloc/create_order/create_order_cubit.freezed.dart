@@ -21,6 +21,7 @@ mixin _$CreateOrderState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(Cart cart) login,
     required TResult Function(MyOrder data) success,
     required TResult Function(Failure failure) failure,
   }) => throw _privateConstructorUsedError;
@@ -28,6 +29,7 @@ mixin _$CreateOrderState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
     TResult? Function(MyOrder data)? success,
     TResult? Function(Failure failure)? failure,
   }) => throw _privateConstructorUsedError;
@@ -35,6 +37,7 @@ mixin _$CreateOrderState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(Cart cart)? login,
     TResult Function(MyOrder data)? success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -43,6 +46,7 @@ mixin _$CreateOrderState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) => throw _privateConstructorUsedError;
@@ -50,6 +54,7 @@ mixin _$CreateOrderState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) => throw _privateConstructorUsedError;
@@ -57,6 +62,7 @@ mixin _$CreateOrderState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -130,6 +136,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(Cart cart) login,
     required TResult Function(MyOrder data) success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -141,6 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
     TResult? Function(MyOrder data)? success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -152,6 +160,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(Cart cart)? login,
     TResult Function(MyOrder data)? success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -167,6 +176,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -178,6 +188,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -189,6 +200,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -249,6 +261,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(Cart cart) login,
     required TResult Function(MyOrder data) success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -260,6 +273,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
     TResult? Function(MyOrder data)? success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -271,6 +285,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(Cart cart)? login,
     TResult Function(MyOrder data)? success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -286,6 +301,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -297,6 +313,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -308,6 +325,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -321,6 +339,166 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements CreateOrderState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoginImplCopyWith<$Res> {
+  factory _$$LoginImplCopyWith(
+    _$LoginImpl value,
+    $Res Function(_$LoginImpl) then,
+  ) = __$$LoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Cart cart});
+}
+
+/// @nodoc
+class __$$LoginImplCopyWithImpl<$Res>
+    extends _$CreateOrderStateCopyWithImpl<$Res, _$LoginImpl>
+    implements _$$LoginImplCopyWith<$Res> {
+  __$$LoginImplCopyWithImpl(
+    _$LoginImpl _value,
+    $Res Function(_$LoginImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? cart = null}) {
+    return _then(
+      _$LoginImpl(
+        null == cart
+            ? _value.cart
+            : cart // ignore: cast_nullable_to_non_nullable
+                as Cart,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$LoginImpl implements _Login {
+  const _$LoginImpl(this.cart);
+
+  @override
+  final Cart cart;
+
+  @override
+  String toString() {
+    return 'CreateOrderState.login(cart: $cart)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginImpl &&
+            (identical(other.cart, cart) || other.cart == cart));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cart);
+
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
+      __$$LoginImplCopyWithImpl<_$LoginImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(Cart cart) login,
+    required TResult Function(MyOrder data) success,
+    required TResult Function(Failure failure) failure,
+  }) {
+    return login(cart);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
+    TResult? Function(MyOrder data)? success,
+    TResult? Function(Failure failure)? failure,
+  }) {
+    return login?.call(cart);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(Cart cart)? login,
+    TResult Function(MyOrder data)? success,
+    TResult Function(Failure failure)? failure,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(cart);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return login(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return login?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Login implements CreateOrderState {
+  const factory _Login(final Cart cart) = _$LoginImpl;
+
+  Cart get cart;
+
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -395,6 +573,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(Cart cart) login,
     required TResult Function(MyOrder data) success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -406,6 +585,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
     TResult? Function(MyOrder data)? success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -417,6 +597,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(Cart cart)? login,
     TResult Function(MyOrder data)? success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -432,6 +613,7 @@ class _$SuccessImpl implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -443,6 +625,7 @@ class _$SuccessImpl implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -454,6 +637,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -549,6 +733,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(Cart cart) login,
     required TResult Function(MyOrder data) success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -560,6 +745,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(Cart cart)? login,
     TResult? Function(MyOrder data)? success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -571,6 +757,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(Cart cart)? login,
     TResult Function(MyOrder data)? success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -586,6 +773,7 @@ class _$FailureImpl implements _Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Login value) login,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
@@ -597,6 +785,7 @@ class _$FailureImpl implements _Failure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Login value)? login,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -608,6 +797,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Login value)? login,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
