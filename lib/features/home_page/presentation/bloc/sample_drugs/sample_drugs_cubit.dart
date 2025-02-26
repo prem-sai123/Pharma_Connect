@@ -15,10 +15,11 @@ class SampleDrugsCubit extends Cubit<SampleDrugsState> {
   final HomePageRepo repo;
 
   static SampleDrugsCubit get() => $sl.get<SampleDrugsCubit>();
+  
   void fetchSampleDrugs() async {
     emit(_Loading());
     final res = await repo.fetchSampleDrugs();
-    emit(res.fold(_Failure.new, _Suucess.new));
+    emit(res.fold(_Failure.new, _Success.new));
   }
 }
 
@@ -26,6 +27,6 @@ class SampleDrugsCubit extends Cubit<SampleDrugsState> {
 class SampleDrugsState with _$SampleDrugsState {
   const factory SampleDrugsState.initial() = _Initial;
   const factory SampleDrugsState.loading() = _Loading;
-  const factory SampleDrugsState.success(List<SampleDrug> data) = _Suucess;
+  const factory SampleDrugsState.success(List<SampleDrug> data) = _Success;
   const factory SampleDrugsState.failure(Failure failure) = _Failure;
 }

@@ -17,8 +17,16 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../features/home_page/data/home_page_repo.dart' as _i594;
 import '../features/home_page/data/home_page_repo_impl.dart' as _i830;
+import '../features/home_page/presentation/bloc/product_details/product_details_cubit.dart'
+    as _i817;
 import '../features/home_page/presentation/bloc/sample_drugs/sample_drugs_cubit.dart'
     as _i989;
+import '../features/my_orders/presentation/bloc/create_order/create_order_cubit.dart'
+    as _i923;
+import '../features/my_orders/presentation/bloc/orders/orders_cubit.dart'
+    as _i268;
+import '../features/profile/presentation/bloc/profile_details/profile_details_cubit.dart'
+    as _i339;
 import 'injector.dart' as _i811;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -36,10 +44,25 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i974.FirebaseFirestore>(() => thirdPartyDependencies.db);
     gh.lazySingleton<_i594.HomePageRepo>(
-      () => _i830.HomePageRepoImpl(db: gh<_i974.FirebaseFirestore>()),
+      () => _i830.HomePageRepoImpl(
+        db: gh<_i974.FirebaseFirestore>(),
+        pref: gh<_i460.SharedPreferences>(),
+      ),
     );
     gh.factory<_i989.SampleDrugsCubit>(
       () => _i989.SampleDrugsCubit(gh<_i594.HomePageRepo>()),
+    );
+    gh.factory<_i817.ProductDetailsCubit>(
+      () => _i817.ProductDetailsCubit(gh<_i594.HomePageRepo>()),
+    );
+    gh.factory<_i268.OrdersCubit>(
+      () => _i268.OrdersCubit(gh<_i594.HomePageRepo>()),
+    );
+    gh.factory<_i923.CreateOrderCubit>(
+      () => _i923.CreateOrderCubit(gh<_i594.HomePageRepo>()),
+    );
+    gh.factory<_i339.ProfileDetailsCubit>(
+      () => _i339.ProfileDetailsCubit(gh<_i594.HomePageRepo>()),
     );
     return this;
   }

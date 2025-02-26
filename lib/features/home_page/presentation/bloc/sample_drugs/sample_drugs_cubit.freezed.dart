@@ -43,21 +43,21 @@ mixin _$SampleDrugsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Suucess value) success,
+    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Suucess value)? success,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Suucess value)? success,
+    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -167,7 +167,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Suucess value) success,
+    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return initial(this);
@@ -178,7 +178,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Suucess value)? success,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return initial?.call(this);
@@ -189,7 +189,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Suucess value)? success,
+    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -286,7 +286,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Suucess value) success,
+    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return loading(this);
@@ -297,7 +297,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Suucess value)? success,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return loading?.call(this);
@@ -308,7 +308,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Suucess value)? success,
+    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -324,22 +324,22 @@ abstract class _Loading implements SampleDrugsState {
 }
 
 /// @nodoc
-abstract class _$$SuucessImplCopyWith<$Res> {
-  factory _$$SuucessImplCopyWith(
-    _$SuucessImpl value,
-    $Res Function(_$SuucessImpl) then,
-  ) = __$$SuucessImplCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<SampleDrug> data});
 }
 
 /// @nodoc
-class __$$SuucessImplCopyWithImpl<$Res>
-    extends _$SampleDrugsStateCopyWithImpl<$Res, _$SuucessImpl>
-    implements _$$SuucessImplCopyWith<$Res> {
-  __$$SuucessImplCopyWithImpl(
-    _$SuucessImpl _value,
-    $Res Function(_$SuucessImpl) _then,
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$SampleDrugsStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of SampleDrugsState
@@ -348,7 +348,7 @@ class __$$SuucessImplCopyWithImpl<$Res>
   @override
   $Res call({Object? data = null}) {
     return _then(
-      _$SuucessImpl(
+      _$SuccessImpl(
         null == data
             ? _value._data
             : data // ignore: cast_nullable_to_non_nullable
@@ -360,8 +360,8 @@ class __$$SuucessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuucessImpl implements _Suucess {
-  const _$SuucessImpl(final List<SampleDrug> data) : _data = data;
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(final List<SampleDrug> data) : _data = data;
 
   final List<SampleDrug> _data;
   @override
@@ -380,7 +380,7 @@ class _$SuucessImpl implements _Suucess {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuucessImpl &&
+            other is _$SuccessImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -393,8 +393,8 @@ class _$SuucessImpl implements _Suucess {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuucessImplCopyWith<_$SuucessImpl> get copyWith =>
-      __$$SuucessImplCopyWithImpl<_$SuucessImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -438,7 +438,7 @@ class _$SuucessImpl implements _Suucess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Suucess value) success,
+    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return success(this);
@@ -449,7 +449,7 @@ class _$SuucessImpl implements _Suucess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Suucess value)? success,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return success?.call(this);
@@ -460,7 +460,7 @@ class _$SuucessImpl implements _Suucess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Suucess value)? success,
+    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -471,15 +471,15 @@ class _$SuucessImpl implements _Suucess {
   }
 }
 
-abstract class _Suucess implements SampleDrugsState {
-  const factory _Suucess(final List<SampleDrug> data) = _$SuucessImpl;
+abstract class _Success implements SampleDrugsState {
+  const factory _Success(final List<SampleDrug> data) = _$SuccessImpl;
 
   List<SampleDrug> get data;
 
   /// Create a copy of SampleDrugsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuucessImplCopyWith<_$SuucessImpl> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -592,7 +592,7 @@ class _$FailureImpl implements _Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Suucess value) success,
+    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return failure(this);
@@ -603,7 +603,7 @@ class _$FailureImpl implements _Failure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Suucess value)? success,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -614,7 +614,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Suucess value)? success,
+    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {

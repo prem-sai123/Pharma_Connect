@@ -31,4 +31,5 @@ abstract class AppColors {
   static const Color charcoalGrey = Color(0xFF5A5959);
   static const Color oliveGrey = Color(0xFF535658);
   static const Color slateGrey = Color(0xFF90979C);
+  static const Color divider = Color(0xFFEBEBEB);
 }

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:pharma_connect/core/context_ext.dart';
 import 'package:pharma_connect/core/styles/app_colors.dart';
+import 'package:pharma_connect/core/widget_ext.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SimpleAppBar({super.key, required this.title});
+  const SimpleAppBar({
+    super.key,
+    required this.title,
+    this.automaticallyImplyLeading = true,
+    this.onPop,
+  });
 
   final String title;
+  final bool automaticallyImplyLeading;
+  final VoidCallback? onPop;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -14,6 +23,14 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
         fontSize: 16,
       ),
       title: Text(title),
+      leading: InkWell(
+        onTap: onPop ?? context.close,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Icon(Icons.keyboard_backspace).showIf(automaticallyImplyLeading),
+        ),
+      ),
+      leadingWidth: automaticallyImplyLeading ? 24 : 0,
       elevation: 6,
       backgroundColor: Colors.white,
       foregroundColor: Colors.white,
