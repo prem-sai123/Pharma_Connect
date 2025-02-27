@@ -66,15 +66,13 @@ class HomePageRepoImpl implements HomePageRepo {
   AsyncValueOf<List<MyOrder>> fetchOrders() async {
     try {
       final userId = pref.getString(Entites.userId);
+      if (userId == null) right(<MyOrder>[]);
 
       final query = db
           .collection(Entites.orders)
           .where('is_active', isEqualTo: true);
 
-      final data =
-          userId != null
-              ? await query.where('ordered_by', isEqualTo: userId).get()
-              : await query.get();
+      final data = await query.where('ordered_by', isEqualTo: userId).get();
 
       final sampleDrugs =
           data.docs.map((e) => MyOrder.fromJson(e.data())).toList();
