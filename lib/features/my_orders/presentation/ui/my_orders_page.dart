@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:pharma_connect/core/context_ext.dart';
-import 'package:pharma_connect/core/styles/app_colors.dart';
-import 'package:pharma_connect/core/widget_ext.dart';
-import 'package:pharma_connect/core/widgets/empty_data_widget.dart';
-import 'package:pharma_connect/core/widgets/image_loading_builder.dart';
-import 'package:pharma_connect/core/widgets/section_widget.dart';
-import 'package:pharma_connect/core/widgets/simple_app_bar.dart';
+import 'package:pharma_connect/core/core.dart';
 import 'package:pharma_connect/features/home_page/model/sample_drug.dart';
 import 'package:pharma_connect/features/home_page/presentation/home_page.dart';
 import 'package:pharma_connect/features/home_page/presentation/product_details_view.dart';

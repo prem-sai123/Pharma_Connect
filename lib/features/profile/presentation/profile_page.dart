@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharma_connect/core/context_ext.dart';
-import 'package:pharma_connect/core/string_ext.dart';
-import 'package:pharma_connect/core/styles/app_colors.dart';
-import 'package:pharma_connect/core/widgets/app_text_field.dart';
-import 'package:pharma_connect/core/widgets/loading_overlay.dart';
-import 'package:pharma_connect/core/widgets/simple_app_bar.dart';
+import 'package:pharma_connect/core/core.dart';
 import 'package:pharma_connect/features/home_page/presentation/home_page.dart';
 import 'package:pharma_connect/features/profile/model/user_details.dart';
 import 'package:pharma_connect/features/profile/presentation/bloc/profile_details/profile_details_cubit.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_connect/core/context_ext.dart';
-import 'package:pharma_connect/core/styles/app_icons.dart';
+import 'package:pharma_connect/core/core.dart';
 
 class PromotionsWidget extends StatelessWidget {
   const PromotionsWidget({super.key});

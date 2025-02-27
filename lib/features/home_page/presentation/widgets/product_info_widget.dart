@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_connect/core/context_ext.dart';
-import 'package:pharma_connect/core/widget_ext.dart';
-import 'package:pharma_connect/core/widgets/section_widget.dart';
+import 'package:pharma_connect/core/core.dart';
 import 'package:pharma_connect/features/home_page/model/product_details.dart';
 
 class ProductInfoWidget extends StatefulWidget {

@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 import 'package:pharma_connect/features/home_page/model/sample_drug.dart';
 
-class Cart {
+class Cart extends Equatable {
   final int index;
   final SampleDrug drug;
   final int units;
@@ -26,4 +27,7 @@ class Cart {
       'dd-MM-yyyy HH:mm:ss',
     ).format(DateTime.now().add(const Duration(days: 7))),
   };
+
+  @override
+  List<Object?> get props => [index, drug, units, dateTime];
 }

@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:pharma_connect/core/core.dart';
 import 'package:injectable/injectable.dart';
-import 'package:pharma_connect/core/entites.dart';
-import 'package:pharma_connect/core/typedefs.dart';
 import 'package:pharma_connect/features/cart/model/cart.dart';
 import 'package:pharma_connect/features/home_page/data/home_page_repo.dart';
 import 'package:pharma_connect/features/home_page/model/sample_drug.dart';
