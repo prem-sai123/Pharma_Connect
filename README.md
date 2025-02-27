@@ -19,9 +19,10 @@ This app implements the BLoC (Business Logic Component) pattern for state manage
 ```
 <br />
 <br />
-
-<img src="screenshots/homepage.png" width="300"/> 
-<img src="screenshots/product_details.png" width="300"/>
-<img src="screenshots/login.png" width="300"/>
-<img src="screenshots/my_orders.png" width="300"/>
-<img src="screenshots/edit_profile.png" width="300"/>
+<p align="center">
+  <img src="screenshots/homepage.png" width="300" style="margin-right: 10px;"/>
+  <img src="screenshots/product_details.png" width="300" style="margin-right: 10px;"/>
+  <img src="screenshots/login.png" width="300" style="margin-right: 10px;"/>
+  <img src="screenshots/my_orders.png" width="300" style="margin-right: 10px;"/>
+  <img src="screenshots/edit_profile.png" width="300"/>
+</p>
