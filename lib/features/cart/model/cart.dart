@@ -24,8 +24,8 @@ class Cart extends Equatable {
     'is_active': true,
     'created_on': DateFormat('dd-MM-yyyy HH:mm:ss').format(DateTime.now()),
     'delivery_date': DateFormat(
-      'dd-MM-yyyy HH:mm:ss',
-    ).format(DateTime.now().add(const Duration(days: 7))),
+      'dd-MM-yyyy',
+    ).format(DateTime.now().add(const Duration(days: 12))),
   };
 
   @override

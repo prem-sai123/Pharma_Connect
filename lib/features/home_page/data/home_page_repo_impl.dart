@@ -65,7 +65,7 @@ class HomePageRepoImpl implements HomePageRepo {
   AsyncValueOf<List<MyOrder>> fetchOrders() async {
     try {
       final userId = pref.getString(Entites.userId);
-      if (userId == null) right(<MyOrder>[]);
+      if (userId == null) return right(<MyOrder>[]);
 
       final query = db
           .collection(Entites.orders)

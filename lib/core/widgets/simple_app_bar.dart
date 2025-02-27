@@ -6,28 +6,39 @@ import 'package:pharma_connect/core/widget_ext.dart';
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SimpleAppBar({
     super.key,
-    required this.title,
+    this.title,
     this.automaticallyImplyLeading = true,
     this.onPop,
+    this.titleWidget,
   });
 
-  final String title;
+  final String? title;
+  final Widget? titleWidget;
   final bool automaticallyImplyLeading;
   final VoidCallback? onPop;
+
+  const SimpleAppBar.titleWidget({required Widget title, Key? key})
+    : this(titleWidget: title, key: key, automaticallyImplyLeading: false);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      titleTextStyle: TextStyle(
-        fontWeight: FontWeight.w700,
-        color: AppColors.white,
-        fontSize: 16,
-      ),
-      title: Text(title),
+      titleTextStyle:
+          titleWidget != null
+              ? null
+              : TextStyle(
+                fontWeight: FontWeight.w700,
+                color: AppColors.white,
+                fontSize: 16,
+              ),
+      title: titleWidget ?? Text(title!),
       leading: InkWell(
         onTap: onPop ?? context.close,
         child: Padding(
           padding: const EdgeInsets.only(left: 8.0),
-          child: Icon(Icons.keyboard_backspace).showIf(automaticallyImplyLeading),
+          child: Icon(
+            Icons.keyboard_backspace,
+          ).showIf(automaticallyImplyLeading),
         ),
       ),
       leadingWidth: automaticallyImplyLeading ? 24 : 0,

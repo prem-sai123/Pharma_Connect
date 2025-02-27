@@ -1,3 +1,6 @@
+import 'package:pharma_connect/core/core.dart';
+import 'package:pharma_connect/features/my_orders/model/order_status_enum.dart';
+
 class MyOrder {
   factory MyOrder.fromJson(Map<String, dynamic> json) {
     return MyOrder(
@@ -9,14 +12,14 @@ class MyOrder {
       createdOn: json['created_on'],
       deliveryDate: json['delivery_date'],
       orderBy: json['ordered_by'],
-      status: json['status'],
+      status: OrderStatus.fromDate(json['created_on']),
     );
   }
   final String orderId;
   final String productId;
   final String name;
   final String image;
-  final String status;
+  final OrderStatus status;
   final int unit;
   final String createdOn;
   final String deliveryDate;
@@ -33,4 +36,6 @@ class MyOrder {
     required this.deliveryDate,
     this.orderBy,
   });
+
+  String get displayStatus => status.name.titleCaseWords;
 }

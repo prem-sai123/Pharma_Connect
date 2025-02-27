@@ -6,6 +6,7 @@ import 'package:pharma_connect/features/home_page/model/sample_drug.dart';
 import 'package:pharma_connect/features/home_page/presentation/home_page.dart';
 import 'package:pharma_connect/features/home_page/presentation/product_details_view.dart';
 import 'package:pharma_connect/features/my_orders/model/my_order.dart';
+import 'package:pharma_connect/features/my_orders/model/order_status_enum.dart';
 import 'package:pharma_connect/features/my_orders/presentation/bloc/orders/orders_cubit.dart';
 import 'package:pharma_connect/features/my_orders/presentation/ui/order_loading_widget.dart';
 
@@ -19,38 +20,48 @@ class MyOrdersPage extends StatelessWidget {
         title: 'My Orders',
         onPop: () => globalPageController.jumpToPage(0),
       ),
-      body: BlocBuilder<OrdersCubit, OrdersState>(
-        builder: (_, state) {
-          return state.maybeWhen(
-            orElse: () => OrderLoadingWidget(),
-            success: (orders) {
-              final data = [...orders];
-              data.sort((a, b) => b.orderId.compareTo(a.orderId));
-              if (data.isEmpty) {
-                return const EmptyDataWidget(message: 'No Orders Found..!');
-              }
-              return ListView.builder(
-                itemCount: data.length,
-                padding: EdgeInsets.all(12.0),
-                itemBuilder: (_, index) {
-                  final order = data.elementAt(index);
-                  return _OrderWidget(
-                    order: order,
-                    onTap: () {
-                      final drug = SampleDrug(
-                        id: order.productId,
-                        name: order.name,
-                        units: 12,
-                        image: order.image,
-                      );
-                      context.goToPage(ProductDetailsView.fetchDetails(context, drug));
-                    },
-                  );
-                },
-              );
-            },
-          );
+      body: RefreshIndicator.adaptive(
+        elevation: 1,
+        color: AppColors.darkTeal,
+        backgroundColor: AppColors.white,
+        onRefresh: () async {
+          context.bloc<OrdersCubit>().fetchOrders();
         },
+        child: BlocBuilder<OrdersCubit, OrdersState>(
+          builder: (_, state) {
+            return state.maybeWhen(
+              orElse: () => OrderLoadingWidget(),
+              success: (orders) {
+                final data = [...orders];
+                data.sort((a, b) => b.orderId.compareTo(a.orderId));
+                if (data.isEmpty) {
+                  return const EmptyDataWidget(message: 'No Orders Found..!');
+                }
+                return ListView.builder(
+                  itemCount: data.length,
+                  padding: EdgeInsets.all(12.0),
+                  itemBuilder: (_, index) {
+                    final order = data.elementAt(index);
+                    return _OrderWidget(
+                      order: order,
+                      onTap: () {
+                        final drug = SampleDrug(
+                          id: order.productId,
+                          name: order.name,
+                          units: 12,
+                          image: order.image,
+                        );
+                        context.goToPage(
+                          ProductDetailsView.fetchDetails(context, drug),
+                        );
+                      },
+                    );
+                  },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -83,7 +94,7 @@ class _OrderWidget extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 10,
-            children: [_imageWidget(), _orderInfo().expanded()],
+            children: [_imageWidget(), _orderInfo(context).expanded()],
           ),
         ],
       ),
@@ -111,12 +122,29 @@ class _OrderWidget extends StatelessWidget {
     loadingBuilder: imageLoadingBuilder,
   );
 
-  Column _orderInfo() {
+  Column _orderInfo(BuildContext context) {
     final statusText = order.unit > 1 ? 'Items' : 'Item';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 4.0,
-      children: [Text(order.status), Text('${order.unit} $statusText')],
+      spacing: 2.0,
+      children: [
+        Text(
+          order.status.statusDescription,
+          style: context.textTheme.labelMedium?.copyWith(
+            color: order.status.statusColor,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        if (order.status != OrderStatus.delivered) ...[
+          Text(
+            'Expected Delivery: ${order.deliveryDate}',
+            style: context.textTheme.labelSmall?.copyWith(
+              color: AppColors.slateGrey,
+            ),
+          ),
+        ],
+        Text('${order.unit} $statusText'),
+      ],
     );
   }
 }

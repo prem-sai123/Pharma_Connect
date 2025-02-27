@@ -82,9 +82,22 @@ class _HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SimpleAppBar(
-        title: 'PharmaConnect',
-        automaticallyImplyLeading: false,
+      appBar: SimpleAppBar.titleWidget(
+        title: Text.rich(
+          TextSpan(
+            style: TextStyle(fontFamily: 'Helvetica Neue', fontSize: 18),
+            children: [
+              TextSpan(
+                text: 'Pharma',
+                style: TextStyle(fontWeight: FontWeight.w700)
+              ),
+              TextSpan(
+                text: 'Connect',
+                style: TextStyle(fontWeight: FontWeight.w500)
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(12.0),
