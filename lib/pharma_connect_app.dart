@@ -20,6 +20,7 @@ class PharmaConnectApp extends StatelessWidget {
         BlocProvider(create: (_) => OrdersCubit.get()..fetchOrders()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Pharma Connect',
         builder: FToastBuilder(),
         home: AppMainPage(),
